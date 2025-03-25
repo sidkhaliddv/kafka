@@ -4,6 +4,8 @@ const admin = kafka.admin();
 
 await admin.connect();
 
+//Note: replicationFactor should be <= brokers, as each broker will have only one replica either master or slave.
+
 // partitions will be divided among the brokers and each partition will have one slave replica in other broker
 try {
   admin.createTopics({
